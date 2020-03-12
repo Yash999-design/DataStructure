@@ -353,6 +353,26 @@ class SingleLinkedList:
 
         return start2
 
+    def remove_duplicates(self):
+
+        p = self.start
+        prev = None
+
+        dup_values = dict()
+
+        while p is not None:
+
+            if p.info in dup_values:
+                #! Remove node:
+                prev.link = p.link
+                p = None
+            
+            else:
+                #! Have not encountered element before.
+                dup_values[p.info] = 1
+                prev = p
+            
+            p = prev.link
 
 list = SingleLinkedList()
 
@@ -377,7 +397,8 @@ while True:
     print("16.Insert Cycle")
     print("17.Detect Cycle")
     print("18.Remove Cycle")
-    print("19.Quit")
+    print("19.Remove Duplicates")
+    print("20.Quit")
 
     option = int(input("Enter your choice : "))
 
@@ -433,6 +454,8 @@ while True:
     elif option == 18:
         list.remove_cycle()
     elif option == 19:
+        list.remove_duplicates()
+    elif option == 20:
         break
     else:
         print("Wrong option")
