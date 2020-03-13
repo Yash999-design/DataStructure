@@ -160,8 +160,31 @@ class CircularLinkedList:
         self.print_list()
         print("\n")
         split_cllist.print_list()
+    
+    def concatenate_list(self, list2):
+        p = self.head
+        q = list2.head
+
+        if p is None:
+            p = q
+            return
+        
+        if q is None:
+            return
+        
+        while p.next != self.head:
+            p = p.next
+        p.next = q
+
+        while q.next != list2.head:
+            q = q.next
+        q.next = self.head
+        
+        return self.print_list()
+
 
 cllist = CircularLinkedList()
+cllist2 = CircularLinkedList()
 cllist.append(6)
 cllist.append(7)
 cllist.append(8)
@@ -172,7 +195,14 @@ cllist.prepend(4)
 cllist.prepend(3)
 cllist.prepend(2)
 cllist.prepend(1)
+cllist2.append(11)
+cllist2.append(12)
+cllist2.append(13)
+cllist2.append(14)
+cllist2.append(15)
 # cllist.remove(1)
 # cllist.remove(10)
-cllist.split_list()
+# cllist.split_list()
 # cllist.print_list()
+cllist.concatenate_list(cllist2)
+

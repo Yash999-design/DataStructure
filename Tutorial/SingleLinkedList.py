@@ -269,10 +269,10 @@ class SingleLinkedList:
         p.link = None
 
     def insert_cycle(self, x):
-        
+
         if self.start is None:
-            return 
-        
+            return
+
         p = self.start
         prev = None
         px = None
@@ -282,10 +282,10 @@ class SingleLinkedList:
                 px = p
             prev = p
             p = p.link
-        
+
         if px is not None:
             prev.link = px
-        
+
         else:
             print(f"{x} is not found in the list.")
 
@@ -352,7 +352,7 @@ class SingleLinkedList:
         p.link = None
 
         return start2
-    
+
     def remove_duplicates(self):
 
         p = self.start
@@ -365,12 +365,12 @@ class SingleLinkedList:
                 #! Remove node:
                 prev.link = p.link
                 p = None
-            
+
             else:
                 #! Have not encountered element before.
                 dup_values[p.info] = 1
                 prev = p
-            p = prev.link 
+            p = prev.link
 
 
 list = SingleLinkedList()
